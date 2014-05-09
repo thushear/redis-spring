@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.interface21.beans.BeanWrapper</OriginalElement>
+  <nodes>
+    <node x="642.4545454545454" y="145.36363636363632">com.interface21.beans.CachedIntrospectionResults</node>
+    <node x="0.0" y="110.0">com.interface21.beans.BeanWrapperImpl</node>
+    <node x="100.5" y="0.0">com.interface21.beans.BeanWrapper</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.interface21.beans.BeanWrapperImpl" target="com.interface21.beans.CachedIntrospectionResults">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.interface21.beans.BeanWrapperImpl" target="com.interface21.beans.BeanWrapper">
+      <point x="0.0" y="-108.0" />
+      <point x="0.0" y="30.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.1" x="986.090909090909" y="119.0" />
+  <SelectedNodes>
+    <node>com.interface21.beans.BeanWrapper</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
