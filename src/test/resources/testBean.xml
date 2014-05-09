@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+  <bean name="rod" singleton="true" class="com.interface21.beans.TBeam">
+    <property name="name">rod</property>
+    <property name="age">11</property>
+    <property name="spouse" beanRef="true">kongm</property>
+  </bean>
+  
+  <bean name="kongm"  class="com.interface21.beans.TBeam">
+    <property name="name">kongm</property>
+    <property name="age">11</property>
+  </bean>
+
+</beans>

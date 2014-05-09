@@ -1,0 +1,37 @@
+2014-04-30 10:47:07,933 ERROR zookeeper.ClientCnxn - Error while calling watcher 
+java.lang.NullPointerException
+	at net.shopin.zookeeper.LeaderElection.process(LeaderElection.java:82)
+	at org.apache.zookeeper.ClientCnxn$EventThread.processEvent(ClientCnxn.java:519)
+	at org.apache.zookeeper.ClientCnxn$EventThread.run(ClientCnxn.java:495)
+2014-04-30 10:47:08,098 ERROR zookeeper.LeaderElection - org.apache.zookeeper.KeeperException$NoNodeException: KeeperErrorCode = NoNode for /GroupMembers/leader
+2014-04-30 10:48:16,552 ERROR zookeeper.ClientCnxn - Error while calling watcher 
+java.lang.NullPointerException
+	at net.shopin.zookeeper.LeaderElection.process(LeaderElection.java:82)
+	at org.apache.zookeeper.ClientCnxn$EventThread.processEvent(ClientCnxn.java:519)
+	at org.apache.zookeeper.ClientCnxn$EventThread.run(ClientCnxn.java:495)
+2014-04-30 10:48:16,590 ERROR zookeeper.LeaderElection - org.apache.zookeeper.KeeperException$NoNodeException: KeeperErrorCode = NoNode for /GroupMembers/leader
+2014-04-30 10:48:30,272 ERROR zookeeper.ClientCnxn - Error while calling watcher 
+java.lang.NullPointerException
+	at net.shopin.zookeeper.LeaderElection.process(LeaderElection.java:82)
+	at org.apache.zookeeper.ClientCnxn$EventThread.processEvent(ClientCnxn.java:519)
+	at org.apache.zookeeper.ClientCnxn$EventThread.run(ClientCnxn.java:495)
+2014-04-30 10:48:30,287 ERROR zookeeper.LeaderElection - org.apache.zookeeper.KeeperException$NoNodeException: KeeperErrorCode = NoNode for /GroupMembers/leader
+2014-04-30 10:48:39,914 ERROR zookeeper.ClientCnxn - Error while calling watcher 
+java.lang.NullPointerException
+	at net.shopin.zookeeper.LeaderElection.process(LeaderElection.java:82)
+	at org.apache.zookeeper.ClientCnxn$EventThread.processEvent(ClientCnxn.java:519)
+	at org.apache.zookeeper.ClientCnxn$EventThread.run(ClientCnxn.java:495)
+2014-04-30 10:48:50,231 ERROR zookeeper.ClientCnxn - Error while calling watcher 
+java.lang.NullPointerException
+	at net.shopin.zookeeper.LeaderElection.process(LeaderElection.java:82)
+	at org.apache.zookeeper.ClientCnxn$EventThread.processEvent(ClientCnxn.java:519)
+	at org.apache.zookeeper.ClientCnxn$EventThread.run(ClientCnxn.java:495)
+2014-04-30 10:48:50,247 ERROR zookeeper.LeaderElection - org.apache.zookeeper.KeeperException$NoNodeException: KeeperErrorCode = NoNode for /GroupMembers/leader
+2014-04-30 10:52:07,465 ERROR zookeeper.ClientCnxn - Error while calling watcher 
+java.lang.NullPointerException
+	at net.shopin.zookeeper.LeaderElection.process(LeaderElection.java:82)
+	at org.apache.zookeeper.ClientCnxn$EventThread.processEvent(ClientCnxn.java:519)
+	at org.apache.zookeeper.ClientCnxn$EventThread.run(ClientCnxn.java:495)
+2014-04-30 10:52:07,482 ERROR zookeeper.LeaderElection - org.apache.zookeeper.KeeperException$NoNodeException: KeeperErrorCode = NoNode for /GroupMembers/leader
+2014-04-30 10:52:07,599 ERROR zookeeper.LeaderElection - org.apache.zookeeper.KeeperException$NoNodeException: KeeperErrorCode = NoNode for /GroupMembers/leader
+2014-04-30 10:52:07,627 ERROR zookeeper.LeaderElection - org.apache.zookeeper.KeeperException$NoNodeException: KeeperErrorCode = NoNode for /GroupMembers/leader
