@@ -3,25 +3,68 @@
   <ID>JAVA</ID>
   <OriginalElement>com.interface21.beans.BeanWrapper</OriginalElement>
   <nodes>
-    <node x="642.4545454545454" y="145.36363636363632">com.interface21.beans.CachedIntrospectionResults</node>
-    <node x="0.0" y="110.0">com.interface21.beans.BeanWrapperImpl</node>
-    <node x="100.5" y="0.0">com.interface21.beans.BeanWrapper</node>
+    <node x="193.0" y="575.0">com.interface21.beans.factory.support.AbstractBeanDefinition</node>
+    <node x="-278.0" y="824.0">com.interface21.beans.factory.support.DefaultRootBeanDefinition</node>
+    <node x="-650.0" y="519.0">com.interface21.beans.CachedIntrospectionResults</node>
+    <node x="-942.75" y="733.0">com.interface21.beans.BeanWrapperImpl</node>
+    <node x="-4.0" y="497.0">com.interface21.beans.factory.support.BeanDefinition</node>
+    <node x="-7.0" y="818.0">com.interface21.beans.factory.support.ChildBeanDefinition</node>
+    <node x="-246.0" y="605.0">com.interface21.beans.factory.support.RootBeanDefinition</node>
+    <node x="-283.0" y="706.0">com.interface21.beans.factory.support.AbstractRootBeanDefinition</node>
+    <node x="99.0" y="892.0">com.interface21.beans.factory.support.ChildBeanDefinitionImpl</node>
+    <node x="-1007.0" y="571.0">com.interface21.beans.BeanWrapper</node>
   </nodes>
   <notes />
   <edges>
+    <edge source="com.interface21.beans.factory.support.RootBeanDefinition" target="com.interface21.beans.factory.support.BeanDefinition">
+      <point x="0.0" y="-17.0" />
+      <point x="0.0" y="17.0" />
+    </edge>
+    <edge source="com.interface21.beans.factory.support.ChildBeanDefinition" target="com.interface21.beans.factory.support.BeanDefinition">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.interface21.beans.factory.support.ChildBeanDefinitionImpl" target="com.interface21.beans.factory.support.ChildBeanDefinition">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.interface21.beans.factory.support.ChildBeanDefinitionImpl" target="com.interface21.beans.factory.support.AbstractBeanDefinition">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
     <edge source="com.interface21.beans.BeanWrapperImpl" target="com.interface21.beans.CachedIntrospectionResults">
       <point x="0.0" y="0.0" />
       <point x="0.0" y="0.0" />
     </edge>
     <edge source="com.interface21.beans.BeanWrapperImpl" target="com.interface21.beans.BeanWrapper">
-      <point x="0.0" y="-108.0" />
+      <point x="-134.5" y="-108.0" />
+      <point x="-808.25" y="708.0" />
+      <point x="-838.5" y="708.0" />
       <point x="0.0" y="30.0" />
     </edge>
+    <edge source="com.interface21.beans.factory.support.AbstractRootBeanDefinition" target="com.interface21.beans.factory.support.RootBeanDefinition">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.interface21.beans.factory.support.DefaultRootBeanDefinition" target="com.interface21.beans.BeanWrapperImpl">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.interface21.beans.factory.support.AbstractBeanDefinition" target="com.interface21.beans.factory.support.BeanDefinition">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.interface21.beans.factory.support.DefaultRootBeanDefinition" target="com.interface21.beans.factory.support.AbstractRootBeanDefinition">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.interface21.beans.factory.support.AbstractRootBeanDefinition" target="com.interface21.beans.factory.support.AbstractBeanDefinition">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="1.1" x="986.090909090909" y="119.0" />
-  <SelectedNodes>
-    <node>com.interface21.beans.BeanWrapper</node>
-  </SelectedNodes>
+  <settings layout="Hierarchic Group" zoom="1.0" x="-21.5" y="712.0" />
+  <SelectedNodes />
   <Categories>
     <Category>Fields</Category>
   </Categories>
