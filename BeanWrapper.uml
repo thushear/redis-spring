@@ -100,7 +100,7 @@
       <point x="0.0" y="0.0" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="1.0" x="300.0" y="984.5" />
+  <settings layout="Hierarchic Group" zoom="1.0" x="300.0" y="1504.5" />
   <SelectedNodes>
     <node>com.interface21.beans.BeanWrapper</node>
   </SelectedNodes>
