@@ -272,7 +272,7 @@ public class BeanWrapperImpl implements BeanWrapper {
      * This exception can be examined later to see all binding errors.
      * Properties that were successfully updated stay changed.
      * @param pvs PropertyValues to set on the target object
-     * @param ignoreUnknown should we ignore unknown values (not found in the bean!?)
+     *
      */
 	/* (non-Javadoc)
 	 * @see com.interface21.beans.BeanWrapper#setPropertyValues(com.interface21.beans.PropertyValues)

@@ -33,6 +33,7 @@ import java.util.Map;
  * @since 13 April 2001
  * @version 1.1
  */
+
 public interface BeanWrapper {
 	
 	/**
