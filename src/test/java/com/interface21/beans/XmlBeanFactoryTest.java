@@ -16,7 +16,7 @@ public class XmlBeanFactoryTest {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		BeanFactory factory = new XmlBeanFactory("D:\\clubworkspace\\redis-shopin\\src\\test\\resources\\testBean.xml");
+		BeanFactory factory = new XmlBeanFactory("testBean.xml");
 		
 		
 		TBeam t =  (TBeam) factory.getBean("rod");
