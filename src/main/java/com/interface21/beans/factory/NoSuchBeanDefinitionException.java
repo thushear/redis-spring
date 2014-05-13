@@ -28,6 +28,12 @@ public class NoSuchBeanDefinitionException extends BeansException {
 		this.name = name;
 	}
 
+    public NoSuchBeanDefinitionException(String name) {
+        super("No bean named [" + name + "] is defined", null);
+        this.name = name;
+    }
+
+
 	public String getBeanName() {
         return name;
     }
