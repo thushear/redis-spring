@@ -65,6 +65,9 @@ public class XmlWebApplicationContext extends AbstractXmlApplicationContext impl
         setDisplayName("WebApplicationContext for namespace '" + namespace + "'");
     }
 
+    //---------------------------------------------------------------------
+    // Implementation of WebApplicationConfig
+    //---------------------------------------------------------------------
     @Override
     public void setServletContext(ServletContext servletContext) throws ServletException {
         this.servletContext = servletContext;

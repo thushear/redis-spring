@@ -1,13 +1,11 @@
 package com.interface21.beans.factory.support;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 import com.interface21.beans.BeansException;
+import com.interface21.beans.FatalBeanException;
+import com.interface21.beans.MutablePropertyValues;
+import com.interface21.beans.PropertyValue;
 import com.interface21.beans.factory.ListableBeanFactory;
 import com.interface21.beans.factory.NoSuchBeanDefinitionException;
 import com.interface21.util.StringUtils;
@@ -154,8 +152,155 @@ public class ListableBeanFactoryImpl extends AbstractBeanFactory implements List
 	 public final void registerBeanDefinition(String prototypeName, BeanDefinition beanDefinition) throws BeansException {
 		 beanDefinitionHash.put(prototypeName, beanDefinition);
 	 }
-	
-	 /**
+
+    /** Register bean definitions in a ResourceBundle. Similar syntax
+     * as for a Map.
+     */
+    public final int registerBeanDefinitions(ResourceBundle rb, String prefix) throws BeansException {
+        // Simply create a map and call overloaded method
+        Map m = new HashMap();
+        Enumeration keys = rb.getKeys();
+        while (keys.hasMoreElements()) {
+            String key = (String) keys.nextElement();
+            m.put(key, rb.getObject(key));
+        }
+
+        return registerBeanDefinitions(m, prefix);
+    }
+
+
+    /** Register valid bean definitions in a properties file.
+     * Simply ignore ineligible properties
+     * @param m Map name -> property (String or Object). Property values
+     * will be strings if coming from a Properties file etc. Property names
+     * (keys) <b>must</b> be strings. Class keys must be Strings.
+     * <code>
+     * employee.class=MyClass              // special property
+     * //employee.abstract=true              // this prototype can't be instantiated directly
+     * employee.group=Insurance Services   // real property
+     * employee.usesDialUp=false           // default unless overriden
+     *
+     * employee.manager(ref)=tony              // reference to another prototype defined in the same file
+     *                                                                         // cyclic and unresolved references will be detected
+     * salesrep.parent=employee
+     * salesrep.department=Sales and Marketing
+     *
+     * techie.parent=employee
+     * techie.department=Software Engineering
+     * techie.usesDialUp=true              // overridden property
+     * </code>
+     * @param prefix The match or filter within the keys
+     * in the map: e.g. 'beans.'
+     * @return the number of bean definitions found
+     */
+    public final int registerBeanDefinitions(Map m, String prefix) throws BeansException {
+        if (prefix == null)
+            prefix = "";
+        int beanCount = 0;
+
+        Set keys = m.keySet();
+        Iterator itr = keys.iterator();
+        while (itr.hasNext()) {
+            String key = (String) itr.next();
+            if (key.startsWith(prefix)) {
+                // Key is of form prefix<name>.property
+                String nameAndProperty = key.substring(prefix.length());
+                int sepIndx = nameAndProperty.indexOf(SEPARATOR);
+                if (sepIndx != -1) {
+                    String beanName = nameAndProperty.substring(0, sepIndx);
+                    logger.warn("Found bean name '" + beanName + "'");
+                    if (beanDefinitionHash.get(beanName) == null) {
+                        // If we haven't already registered it...
+                        registerBeanDefinition(beanName, m, prefix + beanName);
+                        ++beanCount;
+                    }
+                }
+                else {
+                    // Ignore it: it wasn't a valid bean name and property,
+                    // although it did start with the required prefix
+                    logger.warn("invalid name and property '" + nameAndProperty + "'");
+                }
+            }       // if the key started with the prefix we're looking for
+        }       // while there are more keys
+
+        return beanCount;
+    }       // registerBeanDefinition
+
+
+    /**
+     * Get all property values, given a prefix (which will be stripped)
+     */
+    private void registerBeanDefinition(String beanName, Map m, String prefix) throws BeansException {
+        //System.out.println("registerBeanDefinitions for beanName '" + beanName + "' with prefix='" + prefix + "'");
+
+        String  classname = null;
+        String  parent = null;
+        boolean singleton = true;
+
+        MutablePropertyValues pvs = new MutablePropertyValues();
+        Set keys = m.keySet();
+        Iterator itr = keys.iterator();
+        while (itr.hasNext()) {
+            String key = (String) itr.next();
+            if (key.startsWith(prefix + SEPARATOR)) {
+                String property = key.substring(prefix.length() + SEPARATOR.length());
+                //System.out.println("PROPERTY='" + property + "'");
+                if (property.equals(CLASS_KEY)) {
+                    classname = (String) m.get(key);
+                }
+                else if (property.equals(SINGLETON_KEY)) {
+                    String val = (String) m.get(key);
+                    singleton = val == null || !val.toUpperCase().equals("FALSE");
+                }
+                else if (property.equals(PARENT_KEY)) {
+                    parent = (String) m.get(key);
+                }
+                else if (property.endsWith(REF_SUFFIX)) {
+                    // This isn't a real property, but a reference to another prototype
+                    // Extract property name: property is of form dog(ref)
+                    property = property.substring(0, property.length() - REF_SUFFIX.length());
+                    String ref = (String) m.get(key);
+
+                    // It doesn't matter if the referenced bean hasn't yet been registered:
+                    // this will ensure that the reference is resolved at rungime
+                    // Default is not to use singleton
+                    Object val = new RuntimeBeanReference(ref);
+                    pvs.addPropertyValue(new PropertyValue(property, val));
+                }
+                else {
+                    // Normal bean property
+                    Object val = m.get(key);
+                    pvs.addPropertyValue(new PropertyValue(property, val));
+                }
+            }
+        }
+        logger.warn(pvs.toString());
+
+        if (classname == null && parent == null)
+            throw new FatalBeanException("Invalid bean definition. Classname or parent must be supplied for bean with name '" + beanName + "'", null);
+
+
+        try {
+
+            BeanDefinition beanDefinition = null;
+            if (classname != null) {
+                // Load the class using a special class loader if one is available.
+                // Otherwise rely on the default behavior of Class.forName().
+                Class clazz = (this.classLoader != null) ? Class.forName(classname, true, this.classLoader) : Class.forName(classname);
+                beanDefinition = new DefaultRootBeanDefinition(clazz, pvs, singleton);
+            }
+            else {
+                beanDefinition = new ChildBeanDefinitionImpl(parent, pvs, singleton);
+            }
+            registerBeanDefinition(beanName, beanDefinition);
+        }
+        catch (ClassNotFoundException ex) {
+            throw new FatalBeanException("Cannot find class '" + classname + "' for bean with name '" + beanName + "'", ex);
+        }
+    }       // registerBeanDefinition
+
+
+    /**
       * Ensure that even potentially unreferenced singletons are instantiated
       * Subclasses or callers should invoke this if they want this behavior.
       */
@@ -171,7 +316,9 @@ public class ListableBeanFactoryImpl extends AbstractBeanFactory implements List
 		  }
 	 }
 	
-	
+
+
+
 	
 
 }
