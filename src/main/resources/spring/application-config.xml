@@ -8,6 +8,10 @@
     <!-- Uncomment and add your base-package here:
          <context:component-scan
             base-package="org.springframework.samples.service"/>  -->
+    <bean name="testC" class="net.shopin.util.HttpClientUtil">
+
+    </bean>
+
 
 </beans>
 
