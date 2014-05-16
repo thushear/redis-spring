@@ -1,7 +1,32 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
-  <display-name>redis-shopin</display-name>
-  <context-param>
+ <display-name>redis-shopin</display-name>
+
+     <!--spring 1.0-->
+    <context-param>
+        <param-name>configUrl</param-name>
+        <param-value>/WEB-INF/applicationContext.xml</param-value>
+    </context-param>
+    <!-- This servlet must be loaded first
+  to create the WebApplicationContext.
+  This is the parent context shared by all servlets
+  in this web application.
+  -->
+     <servlet>
+         <servlet-name>config</servlet-name>
+         <servlet-class>com.interface21.web.context.ContextLoaderServlet</servlet-class>
+         <init-param>
+             <param-name>contextClass</param-name>
+             <param-value>com.interface21.web.context.support.XmlWebApplicationContext</param-value>
+         </init-param>
+         <!-- This is essential. Everything else depends on this servlet. -->
+         <load-on-startup>1</load-on-startup>
+     </servlet>
+
+
+
+
+  <!--<context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>classpath:spring/application-config.xml</param-value>
   </context-param>
@@ -20,5 +45,5 @@
   <servlet-mapping>
     <servlet-name>dispatcherServlet</servlet-name>
     <url-pattern>/</url-pattern>
-  </servlet-mapping>
+  </servlet-mapping>-->
 </web-app>
