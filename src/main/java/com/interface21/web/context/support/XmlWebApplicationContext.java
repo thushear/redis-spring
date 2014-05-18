@@ -3,6 +3,7 @@ package com.interface21.web.context.support;
 import com.interface21.context.ApplicationContext;
 import com.interface21.context.support.AbstractXmlApplicationContext;
 import com.interface21.web.context.WebApplicationContext;
+import com.interface21.web.util.WebUtils;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -53,7 +54,7 @@ public class XmlWebApplicationContext extends AbstractXmlApplicationContext impl
     @Override
     protected InputStream getInputStreamForBeanFactory() throws IOException {
         String xmlFile = getURL();
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return WebUtils.getResourceInputStream(xmlFile, getServletContext());
     }
 
 
@@ -82,6 +83,10 @@ public class XmlWebApplicationContext extends AbstractXmlApplicationContext impl
         }
         refresh();
         if (this.getParent() == null) {
+            WebApplicationContextUtils.configureConfigObjects(this);
+            // Expose as a ServletContext object
+            WebApplicationContextUtils.setAsContextAttribute(this);
+
 
         }
 
