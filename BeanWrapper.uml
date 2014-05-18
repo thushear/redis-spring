@@ -14,13 +14,13 @@
     <node x="433.0" y="1007.0">com.interface21.beans.factory.support.XmlBeanFactory</node>
     <node x="539.0" y="698.0">com.interface21.beans.factory.support.ListableBeanFactoryImpl</node>
     <node x="-283.0" y="706.0">com.interface21.beans.factory.support.AbstractRootBeanDefinition</node>
-    <node x="1379.0" y="457.0">com.interface21.context.MessageSource</node>
     <node x="1020.0" y="745.0">com.interface21.context.ApplicationContext</node>
+    <node x="1379.0" y="457.0">com.interface21.context.MessageSource</node>
     <node x="639.0" y="562.0">com.interface21.beans.factory.ListableBeanFactory</node>
     <node x="-942.75" y="733.0">com.interface21.beans.BeanWrapperImpl</node>
     <node x="-4.0" y="497.0">com.interface21.beans.factory.support.BeanDefinition</node>
-    <node x="1174.0" y="1207.0">com.interface21.context.support.AbstractXmlApplicationContext</node>
     <node x="-7.0" y="818.0">com.interface21.beans.factory.support.ChildBeanDefinition</node>
+    <node x="1174.0" y="1207.0">com.interface21.context.support.AbstractXmlApplicationContext</node>
     <node x="-246.0" y="605.0">com.interface21.beans.factory.support.RootBeanDefinition</node>
     <node x="1186.0" y="1450.0">com.interface21.context.support.FileSystemXmlApplicationContext</node>
     <node x="99.0" y="892.0">com.interface21.beans.factory.support.ChildBeanDefinitionImpl</node>
@@ -42,14 +42,6 @@
       <point x="-838.5" y="708.0" />
       <point x="0.0" y="30.0" />
     </edge>
-    <edge source="com.interface21.context.support.AbstractXmlApplicationContext" target="com.interface21.beans.factory.ListableBeanFactory">
-      <point x="0.0" y="0.0" />
-      <point x="0.0" y="0.0" />
-    </edge>
-    <edge source="com.interface21.beans.factory.support.DefaultRootBeanDefinition" target="com.interface21.beans.BeanWrapperImpl">
-      <point x="0.0" y="0.0" />
-      <point x="0.0" y="0.0" />
-    </edge>
     <edge source="com.interface21.context.support.FileSystemXmlApplicationContext" target="com.interface21.context.support.XmlApplicationContextSupport">
       <point x="0.0" y="0.0" />
       <point x="0.0" y="0.0" />
@@ -58,23 +50,11 @@
       <point x="0.0" y="-17.0" />
       <point x="0.0" y="17.0" />
     </edge>
-    <edge source="com.interface21.beans.factory.support.XmlBeanFactory" target="com.interface21.beans.factory.support.ListableBeanFactoryImpl">
-      <point x="0.0" y="0.0" />
-      <point x="0.0" y="0.0" />
-    </edge>
     <edge source="com.interface21.context.support.ClassPathXmlApplicationContext" target="com.interface21.context.support.XmlApplicationContextSupport">
       <point x="0.0" y="0.0" />
       <point x="0.0" y="0.0" />
     </edge>
-    <edge source="com.interface21.context.support.AbstractApplicationContext" target="com.interface21.context.MessageSource">
-      <point x="0.0" y="0.0" />
-      <point x="0.0" y="0.0" />
-    </edge>
-    <edge source="com.interface21.beans.factory.support.XmlBeanFactory" target="com.interface21.beans.BeanWrapperImpl">
-      <point x="0.0" y="0.0" />
-      <point x="0.0" y="0.0" />
-    </edge>
-    <edge source="com.interface21.context.support.AbstractXmlApplicationContext" target="com.interface21.beans.factory.support.XmlBeanFactory">
+    <edge source="com.interface21.beans.factory.support.XmlBeanFactory" target="com.interface21.beans.factory.support.ListableBeanFactoryImpl">
       <point x="0.0" y="0.0" />
       <point x="0.0" y="0.0" />
     </edge>
@@ -106,18 +86,6 @@
       <point x="0.0" y="0.0" />
       <point x="0.0" y="0.0" />
     </edge>
-    <edge source="com.interface21.beans.factory.support.XmlBeanFactory" target="com.interface21.beans.factory.support.ChildBeanDefinitionImpl">
-      <point x="0.0" y="0.0" />
-      <point x="0.0" y="0.0" />
-    </edge>
-    <edge source="com.interface21.context.support.XmlApplicationContextSupport" target="com.interface21.context.support.FileSystemXmlApplicationContext">
-      <point x="0.0" y="0.0" />
-      <point x="0.0" y="0.0" />
-    </edge>
-    <edge source="com.interface21.beans.factory.support.XmlBeanFactory" target="com.interface21.beans.factory.support.DefaultRootBeanDefinition">
-      <point x="0.0" y="0.0" />
-      <point x="0.0" y="0.0" />
-    </edge>
     <edge source="com.interface21.beans.factory.support.ListableBeanFactoryImpl" target="com.interface21.beans.factory.support.AbstractBeanFactory">
       <point x="0.0" y="0.0" />
       <point x="0.0" y="0.0" />
@@ -134,10 +102,6 @@
       <point x="0.0" y="0.0" />
       <point x="0.0" y="0.0" />
     </edge>
-    <edge source="com.interface21.beans.BeanWrapperImpl" target="com.interface21.beans.CachedIntrospectionResults">
-      <point x="0.0" y="0.0" />
-      <point x="0.0" y="0.0" />
-    </edge>
     <edge source="com.interface21.beans.factory.support.AbstractRootBeanDefinition" target="com.interface21.beans.factory.support.RootBeanDefinition">
       <point x="0.0" y="0.0" />
       <point x="0.0" y="0.0" />
@@ -151,10 +115,8 @@
       <point x="0.0" y="0.0" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="1.0" x="995.5" y="1360.0" />
-  <SelectedNodes>
-    <node>com.interface21.context.support.AbstractApplicationContext</node>
-  </SelectedNodes>
+  <settings layout="Hierarchic Group" zoom="1.0" x="358.0" y="39.5" />
+  <SelectedNodes />
   <Categories>
     <Category>Fields</Category>
   </Categories>

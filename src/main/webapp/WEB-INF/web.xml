@@ -23,27 +23,54 @@
          <load-on-startup>1</load-on-startup>
      </servlet>
 
+    <servlet>
+        <servlet-name>ticket</servlet-name>
+        <servlet-class>com.interface21.web.servlet.ControllerServlet</servlet-class>
+
+        <!-- Causes informative attributes to be placed in request. Can be
+         commented out in production, but won't affect performance much or compromise security
+         -->
+        <init-param>
+            <param-name>debug</param-name>
+            <param-value>false</param-value>
+        </init-param>
+
+        <load-on-startup>2</load-on-startup>
+    </servlet>
 
 
+    <servlet-mapping>
+        <servlet-name>ticket</servlet-name>
+        <url-pattern>*.html</url-pattern>
+    </servlet-mapping>
 
-  <!--<context-param>
-    <param-name>contextConfigLocation</param-name>
-    <param-value>classpath:spring/application-config.xml</param-value>
-  </context-param>
-  <listener>
-    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-  </listener>
-  <servlet>
-    <servlet-name>dispatcherServlet</servlet-name>
-    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-    <init-param>
+    <servlet-mapping>
+        <servlet-name>ticket</servlet-name>
+        <url-pattern>*.pdf</url-pattern>
+    </servlet-mapping>
+
+
+    <!--<context-param>
       <param-name>contextConfigLocation</param-name>
-      <param-value>/WEB-INF/mvc-config.xml</param-value>
-    </init-param>
-    <load-on-startup>1</load-on-startup>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>dispatcherServlet</servlet-name>
-    <url-pattern>/</url-pattern>
-  </servlet-mapping>-->
+      <param-value>classpath:spring/application-config.xml</param-value>
+    </context-param>
+    <listener>
+      <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    <servlet>
+      <servlet-name>dispatcherServlet</servlet-name>
+      <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+      <init-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/mvc-config.xml</param-value>
+      </init-param>
+      <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+      <servlet-name>dispatcherServlet</servlet-name>
+      <url-pattern>/</url-pattern>
+    </servlet-mapping>-->
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
 </web-app>
