@@ -36,6 +36,28 @@
 
 	<dependencies>
 
+        <!-- solr -->
+        <dependency>
+            <groupId>org.apache.solr</groupId>
+            <artifactId>solr-solrj</artifactId>
+            <version>3.5.0</version>
+        </dependency>
+
+        <dependency>
+            <artifactId>solr-core</artifactId>
+            <groupId>org.apache.solr</groupId>
+            <version>3.5.0</version>
+            <type>jar</type>
+            <scope>compile</scope>
+        </dependency>
+
+
+        <!--<dependency>
+            <groupId>org.apache.solr</groupId>
+            <artifactId>solr-core</artifactId>
+            <version>3.5.0</version>
+        </dependency>-->
+
 		<!-- zookeeper -->
 		<dependency>
 			<groupId>org.apache.zookeeper</groupId>
