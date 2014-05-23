@@ -36,6 +36,16 @@
 
 	<dependencies>
 
+
+
+
+        <!--perf4j-->
+        <dependency>
+            <groupId>org.perf4j</groupId>
+            <artifactId>perf4j</artifactId>
+            <version>0.9.16</version>
+        </dependency>
+
         <!-- solr -->
         <dependency>
             <groupId>org.apache.solr</groupId>
@@ -174,7 +184,7 @@
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
-            <version>1.2.9</version>
+            <version>1.2.14</version>
         </dependency>
 
 		<dependency>

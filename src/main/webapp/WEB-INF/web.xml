@@ -2,16 +2,36 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
  <display-name>redis-shopin</display-name>
 
-     <!--spring 1.0-->
+    <servlet>
+        <servlet-name>perf4j</servlet-name>
+        <servlet-class>org.perf4j.log4j.servlet.GraphingServlet</servlet-class>
+        <!--
+          The graphNames parameter determines which graphs to expose. The
+          param-value should be a comma-separated list of the
+          appender NAMES as defined in the log4j.xml file.
+        -->
+        <init-param>
+            <param-name>graphNames</param-name>
+            <param-value>graphExecutionTimes,graphExecutionTPS</param-value>
+        </init-param>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>perf4j</servlet-name>
+        <url-pattern>/perf4j</url-pattern>
+    </servlet-mapping>
+
+
+    <!-- &lt;!&ndash;spring 1.0&ndash;&gt;
     <context-param>
         <param-name>configUrl</param-name>
         <param-value>/WEB-INF/applicationContext.xml</param-value>
     </context-param>
-    <!-- This servlet must be loaded first
+    &lt;!&ndash; This servlet must be loaded first
   to create the WebApplicationContext.
   This is the parent context shared by all servlets
   in this web application.
-  -->
+  &ndash;&gt;
      <servlet>
          <servlet-name>config</servlet-name>
          <servlet-class>com.interface21.web.context.ContextLoaderServlet</servlet-class>
@@ -19,7 +39,7 @@
              <param-name>contextClass</param-name>
              <param-value>com.interface21.web.context.support.XmlWebApplicationContext</param-value>
          </init-param>
-         <!-- This is essential. Everything else depends on this servlet. -->
+         &lt;!&ndash; This is essential. Everything else depends on this servlet. &ndash;&gt;
          <load-on-startup>1</load-on-startup>
      </servlet>
 
@@ -27,9 +47,9 @@
         <servlet-name>ticket</servlet-name>
         <servlet-class>com.interface21.web.servlet.ControllerServlet</servlet-class>
 
-        <!-- Causes informative attributes to be placed in request. Can be
+        &lt;!&ndash; Causes informative attributes to be placed in request. Can be
          commented out in production, but won't affect performance much or compromise security
-         -->
+         &ndash;&gt;
         <init-param>
             <param-name>debug</param-name>
             <param-value>false</param-value>
@@ -49,7 +69,7 @@
         <url-pattern>*.pdf</url-pattern>
     </servlet-mapping>
 
-
+-->
     <!--<context-param>
       <param-name>contextConfigLocation</param-name>
       <param-value>classpath:spring/application-config.xml</param-value>
