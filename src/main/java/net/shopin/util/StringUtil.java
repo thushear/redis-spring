@@ -1,7 +1,7 @@
 package net.shopin.util;
 
 /**
- * 说明:
+ * 说明:  测量java对象内存大小工具类
  * User: kongming
  * Date: 14-5-21
  * Time: 上午10:43
