@@ -28,7 +28,7 @@ public class NettyClient {
             }
         });
 
-        bootstrap.connect(new InetSocketAddress("127.0.0.1",8080));
+        bootstrap.connect(new InetSocketAddress("127.0.0.1",8001));
 
     }
 

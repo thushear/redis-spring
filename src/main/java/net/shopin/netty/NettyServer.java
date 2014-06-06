@@ -32,7 +32,7 @@ public class NettyServer {
         });
 
         //开放8080 端口
-        bootstrap.bind(new InetSocketAddress(8080));
+        bootstrap.bind(new InetSocketAddress(8001));
 
 
     }
