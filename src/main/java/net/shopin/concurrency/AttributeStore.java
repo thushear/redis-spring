@@ -10,10 +10,9 @@ import java.util.regex.Pattern;
  * Date: 14-6-23
  * Time: 下午6:33
  */
-@ThreadSafe
 public class AttributeStore {
 
-    @GuardedBy("this") private final Map<String,String > attributes = new HashMap<String, String>();
+     private final Map<String,String > attributes = new HashMap<String, String>();
 
 
     public synchronized boolean userLocationMatches(String name,String regexp){
