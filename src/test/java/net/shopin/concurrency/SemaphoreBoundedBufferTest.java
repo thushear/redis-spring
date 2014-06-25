@@ -1,6 +1,7 @@
 package net.shopin.concurrency;
 
 import junit.framework.TestCase;
+import net.shopin.util.StringUtil;
 
 /**
  * 说明:
@@ -75,6 +76,38 @@ public class SemaphoreBoundedBufferTest extends TestCase{
        }
 */
    }
+
+
+    //--------------------------测试内存泄露
+
+    /**
+     * 巨型对象
+     */
+    class Big{
+        double[] data = new double[100000];
+    }
+
+    public void testLeak() throws InterruptedException {
+        SemaphoreBoundedBuffer<Big> bb = new SemaphoreBoundedBuffer<Big>(CAPACITY);
+        long heapSize1 = snapshotHeap();
+        for (int i = 0; i < CAPACITY; i++)
+            bb.put(new Big());
+        for (int i = 0; i < CAPACITY; i++)
+            bb.take();
+        long heapSize2 = snapshotHeap();
+        assertTrue(Math.abs(heapSize1 - heapSize2) < THRESHOLD);
+    }
+
+
+    private long snapshotHeap() {
+        try {
+            StringUtil._runGC();
+        } catch (Exception e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        }
+        return StringUtil.usedMemory();
+    }
+
 
 
 }

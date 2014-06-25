@@ -40,7 +40,7 @@ public class PutTakeTest extends TestCase{
     }
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
         new PutTakeTest(10,5,100).test();
         pool.shutdown();
 
